@@ -12,6 +12,6 @@ namespace ControleFinanceiro.BLL.Models
 
         public string Nome { get; set; }
 
-        public virtual ICollection<Categoria> Categorias { get; set; }
+        public virtual ICollection<Categoria> Categoria { get; set; }
     }
 }

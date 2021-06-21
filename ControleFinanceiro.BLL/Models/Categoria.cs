@@ -8,7 +8,7 @@ namespace ControleFinanceiro.BLL.Models
 {
     public class Categoria
     {
-        public string CategoriaId { set; get; }
+        public int CategoriaId { set; get; }
 
         public string Nome { get; set; }
 
@@ -16,8 +16,8 @@ namespace ControleFinanceiro.BLL.Models
 
         public int TipoId { get; set; }
 
-        public Tipo tipo { get; set; }
-        public object Tipo { get; set; }
+        public Tipo Tipo { get; set; }
+
         public virtual ICollection<Despesa> Despesas { get; set; }
 
         public virtual ICollection<Ganho> Ganhos { get; set; }

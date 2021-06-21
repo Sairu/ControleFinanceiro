@@ -1,10 +1,15 @@
+using ControleFinanceiro.BLL.Models;
+using ControleFinanceiro.DALL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.IO;
 
 namespace Project1
@@ -21,6 +26,10 @@ namespace Project1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Contexto>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("ConexaoBD")));
+
+            services.AddIdentity<Usuario, Funcao>().AddEntityFrameworkStores<Contexto>();   
+
             services.AddControllersWithViews();
             services.AddCors();
             services.AddSpaStaticFiles(diretorio =>
@@ -42,6 +51,11 @@ namespace Project1
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+        }
+
+        private void connection(SqlServerDbContextOptionsBuilder obj)
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

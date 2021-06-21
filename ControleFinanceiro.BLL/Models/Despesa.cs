@@ -16,9 +16,9 @@ namespace ControleFinanceiro.BLL.Models
 
         public string Descricao { get; set; }
 
-        public int CategoriaID { get; set; }
+        public int CategoriaId { get; set; }
 
-        public Categoria Categorias { get; set; }
+        public Categoria Categoria { get; set; }
 
         public double Valor { get; set; }
 

@@ -14,8 +14,9 @@ namespace ControleFinanceiro.DALL.Mapeamento
         {
             builder.HasKey(t => t.TipoId);
             builder.Property(t => t.Nome).IsRequired().HasMaxLength(20);
-            builder.HasMany(t => t.Categorias).WithOne(t => t.tipo);
-            builder.HasData(
+            builder.HasMany(t => t.Categoria).WithOne(t => t.Tipo);
+            builder.HasData
+                (
                 new Tipo
                 {
                     TipoId = 1,
@@ -26,6 +27,7 @@ namespace ControleFinanceiro.DALL.Mapeamento
                     TipoId = 2,
                     Nome = "Ganho"
                 });
+
             builder.ToTable("Tipos");
         }
     }
